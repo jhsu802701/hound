@@ -5,7 +5,7 @@ feature "user deactivates a repo", js: true do
     context "when the user does not have a membership" do
       scenario "successfully deactivates the repo" do
         token = "letmein"
-        user = create(:user, token_scopes: "public_repo,user:email")
+        user = create(:user)
         repo = create(:repo, :active, private: true)
         create(:subscription, user: user, repo: repo)
         gateway_subscription = instance_double(
@@ -34,7 +34,7 @@ feature "user deactivates a repo", js: true do
   end
 
   scenario "user deactivates within a plan" do
-    user = create(:user, :with_github_scopes, :stripe)
+    user = create(:user, :stripe)
     first_subscription = create(:subscription, user: user)
     second_subscription = create(:subscription, user: user)
     stub_customer_find_request
@@ -49,7 +49,7 @@ feature "user deactivates a repo", js: true do
   end
 
   scenario "user downgrades to lower plan" do
-    user = create(:user, :with_github_scopes, :stripe)
+    user = create(:user, :stripe)
     5.times do
       subscription = create(:subscription, user: user)
       stub_subscription_find_request(subscription)
@@ -64,7 +64,7 @@ feature "user deactivates a repo", js: true do
   end
 
   scenario "user downgrades to free tier" do
-    user = create(:user, :with_github_scopes, :stripe)
+    user = create(:user, :stripe)
     subscription = create(:subscription, user: user)
     stub_subscription_find_request(subscription)
     stub_customer_find_request

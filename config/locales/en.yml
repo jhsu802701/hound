@@ -5,7 +5,6 @@ en:
         active_private_repos_count: Active private repos
 
   sync_repos: "Refresh repo list"
-  include_private_repos: "Include private repos"
   syncing_repos: "Loading..."
   authenticate: "Sign In with GitHub"
   sign_out: "Sign Out"
