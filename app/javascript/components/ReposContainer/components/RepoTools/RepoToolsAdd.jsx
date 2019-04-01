@@ -6,7 +6,7 @@ const RepoToolsAdd = (props) => (
       className="button repo-tools-add-button"
       href={`https://github.com/apps/${props.appName}/installations/new`}
     >
-      Add more repos
+      Add GitHub repos
     </a>
   </div>
 );
