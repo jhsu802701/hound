@@ -6,8 +6,8 @@
         %strong= t("onboarding.step_one_title")
         %p
           = t("onboarding.step_one_desc")
-      %li.step{ class: ("current-step" if current_user.repos.any? && !current_user.has_active_repos?) }
-        - if current_user.has_active_repos?
+      %li.step{ class: ("current-step" unless has_active_repos?(current_user)) }
+        - if has_active_repos?(current_user)
           %strong
             = t "onboarding.step_two_alt_title",
               count: current_user.repos.active.count
@@ -16,6 +16,6 @@
         %p
           = t("onboarding.step_two_desc")
           = link_to(t("onboarding.account_link"), account_path)
-      %li.step{ class: ("current-step" if current_user.has_active_repos? && current_user.builds.any?) }
+      %li.step{ class: ("current-step" if has_no_builds?(current_user)) }
         %strong= t("onboarding.step_three_title")
         %p= t("onboarding.step_three_desc")

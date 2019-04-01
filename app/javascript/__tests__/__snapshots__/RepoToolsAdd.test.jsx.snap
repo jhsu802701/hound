@@ -8,7 +8,7 @@ exports[`RepoToolsAdd component renders the button to add repos 1`] = `
     className="button repo-tools-add-button"
     href="https://github.com/apps/undefined/installations/new"
   >
-    Add more repos
+    Add GitHub repos
   </a>
 </div>
 `;
