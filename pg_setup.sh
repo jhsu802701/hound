@@ -32,7 +32,7 @@ sudo bash -c "echo 'host    all             all             ::1/128             
 # FINISHED: updating PostgreSQL configuration
 #############################################  
 
-sh pg-restart.sh
+sh services-restart.sh
 
 # Wait for PostgreSQL to fully start up before doing anything else
 echo '--------------'

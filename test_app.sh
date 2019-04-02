@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sh pg-restart.sh
+sh services-restart.sh
 
 echo '--------------'
 echo 'bundle install'
